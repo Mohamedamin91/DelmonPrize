@@ -14,7 +14,8 @@
                             <div class="logo">
                                 <a href="#"><img style="margin-bottom:25px;" src="../Delmonlogo.jpg" width="150" height="100" alt=""></a>
                             </div> 
-	 
+	                     <asp:Label ID="lblMsg" runat="server" ></asp:Label>
+
 
                         </div>    
 </head>
@@ -29,12 +30,11 @@
 					
 				</div>--%>
 			
-                <asp:TextBox ID="txtUserInput" style="margin-bottom:25px; color:#ff0000" runat="server" Text="Enter Your ID/IQama"  Enabled="True"></asp:TextBox>	
+                <asp:TextBox ID="txtUserInput" style="margin-bottom:25px; color:black" runat="server" placeholder="Enter Your ID/IQama"  Enabled="True"></asp:TextBox>	
 				<asp:TextBox ID="txtfullname" runat="server" Text="Full Name" Enabled="false"></asp:TextBox>		
 				<asp:TextBox ID="txtiqama" runat="server" Text="ID/IQama" Enabled="false"></asp:TextBox>
 				<asp:TextBox ID="txtcompany" runat="server" Text="Company " Enabled="false"></asp:TextBox>
-				<asp:TextBox ID="txtdepartment" runat="server" Text="Department" Enabled="false" ></asp:TextBox>
-			     <asp:Button ID="btnconfirm" CssClass="button" runat="server" Text="Confirm" style=" color:white ;margin-top:50px;" />
+			     <asp:Button ID="btnconfirm" CssClass="button" runat="server" Text="Confirm" style=" color:white ;margin-top:50px;" OnClick="btnconfirm_Click"  />
 				<style>
 	.button
 {
