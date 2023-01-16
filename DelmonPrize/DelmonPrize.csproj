@@ -98,13 +98,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Confirm.aspx" />
     <Content Include="Css.css" />
+    <Content Include="Main.css" />
     <Content Include="Delmonlogo.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Register.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Confirm.aspx.cs">
+      <DependentUpon>Confirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Confirm.aspx.designer.cs">
+      <DependentUpon>Confirm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

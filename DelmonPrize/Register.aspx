@@ -3,11 +3,16 @@
 <!DOCTYPE html>
 <html>
 <head>
- 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min"></script>
+
+ <title>Delmon Group | Annual Party </title>
+	<link rel="icon" href="../Delmonlogo.jpg">
 	<link rel="stylesheet" href="style.css">
 	    <link href="../Css.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<title>Login Form Using HTML And CSS Only</title>
 	
  <div class="col-lg-3 col-md-2">
                             <!-- Logo -->
