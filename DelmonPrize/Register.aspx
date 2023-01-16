@@ -11,11 +11,16 @@
 	
  <div class="col-lg-3 col-md-2">
                             <!-- Logo -->
-                            <div class="logo">
+                            <div class="logo" style=" margin-bottom:50px;">
                                 <a href="#"><img style="margin-bottom:25px;" src="../Delmonlogo.jpg" width="150" height="100" alt=""></a>
-                            </div> 
-	                     <asp:Label ID="lblMsg" runat="server" ></asp:Label>
+								</div> 
 
+	                            <div class="logo" style=" margin-bottom:25px;">
+		                       <asp:Label ID="lblMsg" style="background-color: #35348d ; font-size :30px; color:white;   margin-bottom:25px;"   runat="server" ></asp:Label>
+	                          </div>
+	                            <div class="logo" style=" margin-bottom:25px;">
+		                       <asp:Label ID="lblMsg2" style="background-color: #eb2d2e ; font-size :30px; color:white;   margin-bottom:25px;"   runat="server" ></asp:Label>
+	                          </div>
 
                         </div>    
 </head>
@@ -29,9 +34,8 @@
 				<%--<div class="social-container">
 					
 				</div>--%>
-			
-                <asp:TextBox ID="txtUserInput" style="margin-bottom:25px; color:black" runat="server" placeholder="Enter Your ID/IQama"  Enabled="True"></asp:TextBox>	
-				<asp:TextBox ID="txtfullname" runat="server" Text="Full Name" Enabled="false"></asp:TextBox>		
+                <asp:TextBox ID="txtUserInput"  style="margin-bottom:25px; color:black" runat="server" placeholder="Enter Your ID/IQama"  Enabled="True"></asp:TextBox>	
+		       	<asp:TextBox ID="txtfullname" runat="server" Text="Full Name" Enabled="false"></asp:TextBox>		
 				<asp:TextBox ID="txtiqama" runat="server" Text="ID/IQama" Enabled="false"></asp:TextBox>
 				<asp:TextBox ID="txtcompany" runat="server" Text="Company " Enabled="false"></asp:TextBox>
 			     <asp:Button ID="btnconfirm" CssClass="button" runat="server" Text="Confirm" style=" color:white ;margin-top:50px;" OnClick="btnconfirm_Click"  />
@@ -57,7 +61,7 @@
 		<div class="overlay-container">
 			<div class="overlay">
 				<div  class="overlay-panel overlay-right">
-					<h1 style="margin-bottom:35px;">Delmon Annual Party - 2023</h1>
+					<h1 style="margin-bottom:35px;">Delmon Annual Party (42) anniversary-2023</h1>
 					<p> This is a great chance for us to come together as a team, celebrate all the hard work we've put in throughout the year, and just have some fun..</p>
 				    <p ><b>* Please</b> register and attend for getting a chance to win prizes</p>
 				</div>

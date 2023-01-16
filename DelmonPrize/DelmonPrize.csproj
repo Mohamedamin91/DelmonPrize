@@ -116,6 +116,7 @@
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Sqlconnection.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

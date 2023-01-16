@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -12,7 +13,7 @@ namespace DelmonPrize
 {
     public partial class Register : System.Web.UI.Page
     {
-        //  public string ConnectionString = ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString;
+        Sqlconnection Sqlconn = new Sqlconnection();
         Random random = new Random();
         int min = 0;
         int max = 0;
@@ -28,34 +29,72 @@ namespace DelmonPrize
         }
         public void filData()
         {
+           
+          
+
+
             if (txtUserInput.Text != string.Empty)
             {
                 try
                 {
-                    MySqlConnection connection = new MySqlConnection("Server=212.76.85.5; Port=3306; Database=delmonit_Prize; Uid=delmonit_admin; Pwd=Ram72763@;");
-                    connection.Open();
-                    MySqlCommand cmd = new MySqlCommand("SELECT * FROM `Prizes` WHERE `ID` =  " + txtUserInput.Text + " ", connection);
-                    MySqlDataReader reader = cmd.ExecuteReader();
-                    while (reader.Read())
+                    Sqlconn.OpenConection();
+                    SqlParameter paramIDQuery = new SqlParameter("@IDD", SqlDbType.NVarChar);
+                    paramIDQuery.Value = txtUserInput.Text  ;
+                   
+                    SqlDataReader dr = Sqlconn.DataReader("select * from Prize where Gifts = 1  and ID =@IDD", paramIDQuery);
+                    if (dr.HasRows)
                     {
-                        txtfullname.Text = reader.GetString("FullName");
-                        txtiqama.Text = reader.GetString("ID");
-                        txtcompany.Text = reader.GetString("Company");
+                        while (dr.Read())
+                        {
+                            lblMsg.Visible = true;
+                            lblMsg.Text = "Hello :( ";
+                            txtfullname.Text = dr["FullName"].ToString();
+                            txtiqama.Text = dr["ID"].ToString();
+                            txtcompany.Text = dr["Company"].ToString();
+                           
+                        }
+                        dr.Dispose();
+                        dr.Close();
+                        dr = Sqlconn.DataReader("Select * From Prize where Attended =  0  and ID =@IDD", paramIDQuery);
+                       
+
+                        if (dr.HasRows)
+                        {
+                            dr.Dispose();
+                            Sqlconn.ExecuteQueries(" update Prize set Attended = 1 where ID =@IDD ",  paramIDQuery);
+                        }
+                        else 
+                        {
+                            dr.Close();
+                            dr.Dispose();
+                        }
+                            
                     }
-                    reader.Close();
-                    connection.Close();
+                    else
+                    {
+                        Response.Write("<script>alert('" + "not found" + "');</script>");
+
+                        lblMsg.Visible = true;
+                        lblMsg.Text = "User/Creditinals not found :( ";
+                    //    lblMsg.CssClass = "alert alert-danger";
+
+                    }
+                    dr.Close();
+                    Sqlconn.CloseConnection();
                 }
                 catch (Exception ex)
                 {
-                    Response.Write("<script>alert('" + ex.Message.ToString() + "');</script>");
 
+                    Response.Write("<script>alert('" + ex.Message.ToString() + "');</script>");
                 }
             }
-            else 
+            else
             {
                 Response.Write("<script>alert('" + "Please Enter your ID/IQama" + "');</script>");
-         
+
             }
+
+
         }
        
     }
