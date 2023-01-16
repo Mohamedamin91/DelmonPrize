@@ -40,6 +40,7 @@ namespace DelmonPrize
                     Sqlconn.OpenConection();
                     SqlParameter paramIDQuery = new SqlParameter("@IDD", SqlDbType.NVarChar);
                     paramIDQuery.Value = txtUserInput.Text  ;
+
                    
                     SqlDataReader dr = Sqlconn.DataReader("select * from Prize where Gifts = 1  and ID =@IDD", paramIDQuery);
                     if (dr.HasRows)
@@ -51,7 +52,9 @@ namespace DelmonPrize
                             txtfullname.Text = dr["FullName"].ToString();
                             txtiqama.Text = dr["ID"].ToString();
                             txtcompany.Text = dr["Company"].ToString();
-                           
+                            string CandID = dr["CandID"].ToString();
+                            lblMsg.Text = "Congratulations your Raffle Coupon is :  ' " + CandID +  " ' , We wish you best of luck :) ";
+
                         }
                         dr.Dispose();
                         dr.Close();
