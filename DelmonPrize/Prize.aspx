@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Confirm.aspx.cs" Inherits="DelmonPrize.Confirm" %>
-<!doctype html>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Prize.aspx.cs" Inherits="DelmonPrize.Prize" %>
+
 <html lang="en">
   <head>
   	 <title>Delmon Group | Annual Party </title>
@@ -12,11 +12,10 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<link rel="stylesheet" href="Main.css">
-
-	</head>
-	<body>
-	<form action="#" runat="server">
-	<section class="ftco-section">
+</head>
+<body>
+    <form id="form1" runat="server">
+      <section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
@@ -36,45 +35,34 @@
 						<div class="login-wrap p-4 p-lg-5">
 			      	<div class="d-flex">
 			      		<div class="w-100">
-			      			<%--<h3 class="mb-4">Sign In</h3>--%>
-		                 <asp:Label ID="lblMsg" CssClass="mb-4" style="color: #35348d ; font-size :24px; font-weight:bold; " runat="server" ></asp:Label>
-		                 <asp:Label ID="lblMsg2" CssClass="mb-4" style="color: #eb2d2e ; font-size :24px; font-weight:bold; " runat="server" ></asp:Label>
-
+			      		
 						  </div>
 								
 			      	</div>
-							<form action="#" class="signin-form">
-			      		<div class="form-group mb-3">
-			      			<label class="label" for="name"></label>
-							     <asp:TextBox ID="txtUserInput" CssClass="form-control" placeholder="Enter Your ID/IQama" style="color:gray" runat="server"  Enabled="True"></asp:TextBox>	
-		                 	
-			      		</div>
-								<div class="form-group mb-3">
-			      			<label class="label" for="name"></label>
-			      		 <asp:TextBox ID="txtfullname" runat="server"  CssClass="form-control" Text="Full Name" style="color:black"  Enabled="false"></asp:TextBox>		
-				     
-			      		</div>
-								<div class="form-group mb-3">
-			      			<label class="label" for="name"></label>
-			      			      <asp:TextBox ID="txtiqama" runat="server"   CssClass="form-control" Text="ID/IQama" style="color:black" Enabled="false"></asp:TextBox>
-				         
-			      		</div>
-								<div class="form-group mb-3">
-			      			<label class="label" for="name"></label>
-			      		  <asp:TextBox ID="txtcompany" runat="server"  CssClass="form-control" Text="Company" style="color:black" Enabled="false"></asp:TextBox>
-			      		</div>
-		           
-		            <div class="form-group  mb-3">
+							
+			      		   <div class="form-group  mb-3">
 			      	<label class="label" for="name"></label>
 
-			     <asp:Button ID="btnconfirm" CssClass="form-control btn btn-primary submit px-3" style="background-color:#35348d;color:white" runat="server" Text="Confirm" OnClick="btnconfirm_Click"    />
+			     <asp:Button ID="btnconfirm" CssClass="form-control btn btn-primary submit px-3" style="background-color:#35348d;color:white" runat="server" Text="Check The Winner "     />
 		            </div>
+							
+								
+								<div class="form-group mb-3">
+			      			<label class="label" for="name"></label>
+			      		  <asp:TextBox ID="txtwinner" TextMode="multiline"  runat="server"  CssClass="form-control" Text="" style="color:black;height:100px;" Enabled="false"></asp:TextBox>
+			      		</div>
+
+		           	<div class="form-group mb-3">
+			      			<label class="label" for="name"></label>
+				  <asp:Label ID="lblMsg" CssClass="mb-4" style="color: #35348d ; font-size :24px; font-weight:bold; " runat="server" ></asp:Label>
+
+			      		</div>
+		         
 		            <div class="form-group d-md-flex">
 		            	
 						
 									
 		            </div>
-		          </form>
 		        </div>
 		      </div>
 				</div>
@@ -89,5 +77,4 @@
 		</form>
 	</body>
 </html>
-
 
