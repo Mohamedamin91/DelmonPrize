@@ -129,9 +129,11 @@
     <Content Include="award.wav" />
     <Content Include="Confirm.aspx" />
     <Content Include="Css.css" />
+    <Content Include="css2.css" />
     <Content Include="Main.css" />
     <Content Include="Delmonlogo.jpg" />
     <Content Include="Global.asax" />
+    <Content Include="main2.js" />
     <Content Include="Prize.aspx" />
     <Content Include="prize.mp4" />
     <Content Include="Web.config" />

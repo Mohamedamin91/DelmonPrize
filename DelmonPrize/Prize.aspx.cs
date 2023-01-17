@@ -14,19 +14,21 @@ namespace DelmonPrize
     public partial class Prize : System.Web.UI.Page
     {
         Sqlconnection Sqlconn = new Sqlconnection();
-        Random random = new Random();
-        string soundPath = "../award.mp3";
-
+        Random random = new Random(); 
         int min = 0;
         int max = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript:confettiFalling(); ", true);
+
 
         }
 
         protected void btncheckWinner_Click(object sender, EventArgs e)
         {
+            ScriptManager.RegisterClientScriptBlock(this,GetType(), "Javascript", "javascript:confettiFalling(); ", true);
+
             try
             {
                 Sqlconn.OpenConection();

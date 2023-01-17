@@ -15,6 +15,11 @@
 </head>
 <body>
     <form id="form1" runat="server">
+		 	<%--  --%>
+		  <link rel="stylesheet" href="css2.css">
+       	 <div class="box" id="box"></div>
+	     <script src="main2.js"></script>
+         <%--  --%>
       <section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
@@ -43,11 +48,10 @@
 			      		   <div class="form-group  mb-3">
 			      	<label class="label" for="name"></label>
 
-			     <asp:Button ID="btncheckWinner" CssClass="form-control btn btn-primary submit px-3" style="background-color:#35348d;color:white" runat="server" Text="Check The Winner "  OnClick="btncheckWinner_Click" />
-		            </div>
-							
-								
-								<div class="form-group mb-3">
+			     <asp:Button ID="btncheckWinner" CssClass="form-control btn btn-primary submit px-3" style="background-color:#35348d;color:white" runat="server" Text="Check The Winner " OnClientClick="confettiFalling()" OnClick="btncheckWinner_Click" />
+						
+								 </div>
+					<div class="form-group mb-3">
 			      			<label class="label" for="name"></label>
 			      		  <asp:TextBox ID="txtwinner" TextMode="multiline"  runat="server"  CssClass="form-control" Text="" style="color:black;" Enabled="false"></asp:TextBox>
 			      		</div>
@@ -59,10 +63,7 @@
 			      		</div>
            
 							<div class="form-group mb-3">
-                 <script src="https://cdn.jsdelivr.net/npm/js-confetti@1.1.1/dist/index.min.js"></script>
-                 <script>
-               confetti.start();
-                </script>
+                
   
 							</div>
 		         
