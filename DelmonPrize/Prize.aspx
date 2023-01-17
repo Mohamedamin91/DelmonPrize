@@ -43,20 +43,28 @@
 			      		   <div class="form-group  mb-3">
 			      	<label class="label" for="name"></label>
 
-			     <asp:Button ID="btnconfirm" CssClass="form-control btn btn-primary submit px-3" style="background-color:#35348d;color:white" runat="server" Text="Check The Winner "     />
+			     <asp:Button ID="btncheckWinner" CssClass="form-control btn btn-primary submit px-3" style="background-color:#35348d;color:white" runat="server" Text="Check The Winner "  OnClick="btncheckWinner_Click" />
 		            </div>
 							
 								
 								<div class="form-group mb-3">
 			      			<label class="label" for="name"></label>
-			      		  <asp:TextBox ID="txtwinner" TextMode="multiline"  runat="server"  CssClass="form-control" Text="" style="color:black;height:100px;" Enabled="false"></asp:TextBox>
+			      		  <asp:TextBox ID="txtwinner" TextMode="multiline"  runat="server"  CssClass="form-control" Text="" style="color:black;" Enabled="false"></asp:TextBox>
 			      		</div>
 
 		           	<div class="form-group mb-3">
 			      			<label class="label" for="name"></label>
-				  <asp:Label ID="lblMsg" CssClass="mb-4" style="color: #35348d ; font-size :24px; font-weight:bold; " runat="server" ></asp:Label>
+				  <asp:Label ID="lblMsg" CssClass="mb-4" style="color: #35348d ; font-size :30px; font-weight:bold; " runat="server" ></asp:Label>
 
 			      		</div>
+           
+							<div class="form-group mb-3">
+                 <script src="https://cdn.jsdelivr.net/npm/js-confetti@1.1.1/dist/index.min.js"></script>
+                 <script>
+               confetti.start();
+                </script>
+  
+							</div>
 		         
 		            <div class="form-group d-md-flex">
 		            	
