@@ -41,27 +41,29 @@
 			      	</div>
 							<form action="#" class="signin-form">
 			      		<div class="form-group mb-3">
-			      			<label class="label" for="name">ID/IQAMA</label>
-							     <asp:TextBox ID="txtUserInput" CssClass="form-control" placeholder="Enter Your ID/IQama" runat="server"  Enabled="True"></asp:TextBox>	
+			      			<label class="label" for="name"></label>
+							     <asp:TextBox ID="txtUserInput" CssClass="form-control" placeholder="Enter Your ID/IQama" style="color:gray" runat="server"  Enabled="True"></asp:TextBox>	
 		                 	
 			      		</div>
 								<div class="form-group mb-3">
-			      			<label class="label" for="name">Full Name</label>
-			      		 <asp:TextBox ID="txtfullname" runat="server"  CssClass="form-control" Text="Full Name"  Enabled="false"></asp:TextBox>		
+			      			<label class="label" for="name"></label>
+			      		 <asp:TextBox ID="txtfullname" runat="server"  CssClass="form-control" Text="Full Name" style="color:gray"  Enabled="false"></asp:TextBox>		
 				     
 			      		</div>
 								<div class="form-group mb-3">
-			      			<label class="label" for="name">ID/IQama</label>
-			      			      <asp:TextBox ID="txtiqama" runat="server"   CssClass="form-control" Text="ID/IQama"  Enabled="false"></asp:TextBox>
+			      			<label class="label" for="name"></label>
+			      			      <asp:TextBox ID="txtiqama" runat="server"   CssClass="form-control" Text="ID/IQama" style="color:gray" Enabled="false"></asp:TextBox>
 				         
 			      		</div>
 								<div class="form-group mb-3">
-			      			<label class="label" for="name">Company</label>
-			      		  <asp:TextBox ID="txtcompany" runat="server"  CssClass="form-control" Text="Company " Enabled="false"></asp:TextBox>
+			      			<label class="label" for="name"></label>
+			      		  <asp:TextBox ID="txtcompany" runat="server"  CssClass="form-control" Text="Company" style="color:gray" Enabled="false"></asp:TextBox>
 			      		</div>
 		           
-		            <div class="form-group">
-			     <asp:Button ID="btnconfirm" CssClass="form-control btn btn-primary submit px-3" runat="server" Text="Confirm"    />
+		            <div class="form-group  mb-3">
+			      	<label class="label" for="name"></label>
+
+			     <asp:Button ID="btnconfirm" CssClass="form-control btn btn-primary submit px-3" style="background-color:#35348d;color:white" runat="server" Text="Confirm"    />
 		            </div>
 		            <div class="form-group d-md-flex">
 		            	
