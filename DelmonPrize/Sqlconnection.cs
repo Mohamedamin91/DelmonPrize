@@ -44,6 +44,7 @@ namespace DelmonPrize
                 cmd.Parameters.Add(parm);
             }
             SqlDataReader dr = cmd.ExecuteReader();
+            cmd.Dispose();
             cmd.Parameters.Clear();
             return dr;
 

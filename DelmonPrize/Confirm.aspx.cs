@@ -33,19 +33,21 @@ namespace DelmonPrize
                     Sqlconn.OpenConection();
                     SqlParameter paramIDQuery = new SqlParameter("@IDD", SqlDbType.NVarChar);
                     paramIDQuery.Value = txtUserInput.Text;
+                    string Celebrationemoje = "\uD83C\uDF89";
 
 
-                    SqlDataReader dr = Sqlconn.DataReader("select * from Prize where  ID =@IDD", paramIDQuery);
+
+                    SqlDataReader dr = Sqlconn.DataReader("  select CandID,FullName,ID,COMPName_EN from Prize,Companies where Companies.COMPID= Prize.Company and ID =@IDD", paramIDQuery);
                     if (dr.HasRows)
                     {
                         while (dr.Read())
                         {
                             txtfullname.Text = dr["FullName"].ToString();
                             txtiqama.Text = dr["ID"].ToString();
-                            txtcompany.Text = dr["Company"].ToString();
+                            txtcompany.Text = dr["COMPName_EN"].ToString();
                             string CandID = dr["CandID"].ToString();
                             lblMsg.Visible = true;
-                            lblMsg.Text = "Congratulations your Raffle Coupon is :  ' " + CandID + " ' , We wish you best of luck  :) ";
+                            lblMsg.Text = Celebrationemoje + " Congratulations your Raffle Coupon is :  ' " + CandID + " ' , We wish you best of luck  :)  " + Celebrationemoje;
 
                         }
                         dr.Dispose();

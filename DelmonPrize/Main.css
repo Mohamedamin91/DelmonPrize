@@ -63,6 +63,10 @@ body {
     text-align: left;
     background-color: white;
 }
+label2 {
+    transform: rotate(90deg);
+    transform-origin: center;
+}
 
 [tabindex="-1"]:focus {
     outline: 0 !important;
@@ -95,11 +99,6 @@ abbr[data-original-title] {
     text-decoration-skip-ink: none;
 }
 
-address {
-    margin-bottom: 1rem;
-    font-style: normal;
-    line-height: inherit;
-}
 
 ol,
 ul,

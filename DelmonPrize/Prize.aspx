@@ -32,7 +32,7 @@
 					<div class="wrap d-md-flex">
 						<div class="text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last">
 							<div class="text w-100">
-								<h2>Delmon Annual Party (42th) anniversary-2023</h2>
+								<h2>42<sup style= "font-size:20px; font-family:'sans-serif' ">nd</sup> -  Delmon Annual Party Anniversary-2023</h2>
 								<p>This is a great chance for us to come together as a team, celebrate all the hard work we've put in throughout the year, and just have some fun..</p>
 								<p ><b>* Please</b> register and attend for getting a chance to win prizes</p>
 							</div>
@@ -53,14 +53,71 @@
 								 </div>
 					<div class="form-group mb-3">
 			      			<label class="label" for="name"></label>
-			      		  <asp:TextBox ID="txtwinner" TextMode="multiline"  runat="server"  CssClass="form-control" Text="" style="color:black;" Enabled="false"></asp:TextBox>
-			      		</div>
+			      		  <asp:TextBox ID="txtwinner" Visible="false" TextMode="multiline"  runat="server"  CssClass="form-control" Text="" style="color:black;" Enabled="false"></asp:TextBox>
+
+					</div>
 
 		           	<div class="form-group mb-3">
 			      			<label class="label" for="name"></label>
-				  <asp:Label ID="lblMsg" CssClass="mb-4" style="color: #35348d ; font-size :30px; font-weight:bold; " runat="server" ></asp:Label>
+				  <asp:Label ID="lblMsg"  CssClass="label2" style="color: #35348d ;  rotation:inherit; font-size :20px; font-weight:bold; font-family:Tahoma; align-content:center;"   runat="server"  ></asp:Label>
+			      	<script>
+                          var TimeToFade = 8000.0;
 
-			      		</div>
+                   
+                          function fade(eid) {
+                              var element = document.getElementById(eid);
+                              if (element == null)
+                                  return;
+
+                              if (element.FadeState == null) {
+                                  if (element.style.opacity == null
+                                      || element.style.opacity == ''
+                                      || element.style.opacity == '1') {
+                                      element.FadeState = 2;
+                                  }
+                                  else {
+                                      element.FadeState = -2;
+                                  }
+                              }
+
+                              if (element.FadeState == 1 || element.FadeState == -1) {
+                                  element.FadeState = element.FadeState == 1 ? -1 : 1;
+                                  element.FadeTimeLeft = TimeToFade - element.FadeTimeLeft;
+                              }
+                              else {
+                                  element.FadeState = element.FadeState == 2 ? -1 : 1;
+                                  element.FadeTimeLeft = TimeToFade;
+                                  setTimeout("animateFade(" + new Date().getTime() + ",'" + eid + "')", 33);
+                              }
+						  }
+                          function animateFade(lastTick, eid) {
+                              var curTick = new Date().getTime();
+                              var elapsedTicks = curTick - lastTick;
+
+                              var element = document.getElementById(eid);
+
+                              if (element.FadeTimeLeft <= elapsedTicks) {
+                                  element.style.opacity = element.FadeState == 1 ? '1' : '0';
+                                  element.style.filter = 'alpha(opacity = '
+                                      + (element.FadeState == 1 ? '100' : '0') + ')';
+                                  element.FadeState = element.FadeState == 1 ? 2 : -2;
+                                  return;
+                              }
+
+                              element.FadeTimeLeft -= elapsedTicks;
+                              var newOpVal = element.FadeTimeLeft / TimeToFade;
+                              if (element.FadeState == 1)
+                                  newOpVal = 1 - newOpVal;
+
+                              element.style.opacity = newOpVal;
+                              element.style.filter = 'alpha(opacity = ' + (newOpVal * 500) + ')';
+
+                              setTimeout("animateFade(" + curTick + ",'" + eid + "')", 33);
+                          }
+
+                      
+                      </script>
+						   </div>
            
 							<div class="form-group mb-3">
                 
