@@ -33,6 +33,7 @@ namespace DelmonPrize
         protected void btncheckWinner_Click(object sender, EventArgs e)
         {
             string Celebrationemoje = "\uD83C\uDF89";
+            string Sadnessemoje = "☹️";
             SqlParameter paramCompanyID = new SqlParameter("@C1", SqlDbType.Int);
             SqlParameter paramWinnerID = new SqlParameter("@C2", SqlDbType.Int);
 
@@ -79,6 +80,8 @@ namespace DelmonPrize
                     }
                     else
                     {
+                        lblMsg2.Text = "Sorry, there are no more candidates available "  + Sadnessemoje;
+
                         dr.Dispose();
                         dr.Close();
                     }
@@ -94,7 +97,6 @@ namespace DelmonPrize
 
                 System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"C:\Users\amin\Source\Repos\DelmonPrize\DelmonPrize\award.wav");
                 //  player.Play();
-                paramWinnerID.Value = randomNumber;
 
 
                

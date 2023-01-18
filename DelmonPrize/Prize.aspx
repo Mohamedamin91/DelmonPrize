@@ -60,7 +60,9 @@
 		           	<div class="form-group mb-3">
 			      			<label class="label" for="name"></label>
 				  <asp:Label ID="lblMsg"  CssClass="label2" style="color: #35348d ;  rotation:inherit; font-size :20px; font-weight:bold; font-family:Tahoma; align-content:center;"   runat="server"  ></asp:Label>
-			      	<script>
+			       <asp:Label ID="lblMsg2" CssClass="mb-4" style="color: #eb2d2e ; font-size :20px; font-weight:bold; " runat="server" ></asp:Label>
+
+						   <script>
                           var TimeToFade = 8000.0;
 
                    
