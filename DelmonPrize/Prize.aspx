@@ -63,8 +63,8 @@
 
 		           	<div class="form-group mb-3">
 			      			<label class="label" for="name"></label>
-				  <asp:Label ID="lblMsg"  CssClass="label2" AutoPostBack="true" style="color: #35348d ;  rotation:inherit; font-size :20px; font-weight:bold; font-family:Tahoma; align-content:center; text-align:center;"   runat="server"  ></asp:Label>
-			       <asp:Label ID="lblMsg2" CssClass="mb-4" AutoPostBack="true" style="color: #eb2d2e ; font-size :20px; font-weight:bold; " runat="server" ></asp:Label>
+				  <asp:Label ID="lblMsg"  CssClass="label2" AutoPostBack="true" style="color: #35348d ;  rotation:inherit; font-size :25px; font-weight:bold; font-family:Tahoma; align-content:center; text-align:center;"   runat="server"  ></asp:Label>
+			       <asp:Label ID="lblMsg2" CssClass="mb-4" AutoPostBack="true" style="color: #028402 ; font-size :25px; font-weight:bold; " runat="server" ></asp:Label>
 
 						   <script>
                           var TimeToFade = 15000.0;

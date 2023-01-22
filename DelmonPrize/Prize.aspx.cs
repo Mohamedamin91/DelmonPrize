@@ -52,6 +52,7 @@ namespace DelmonPrize
         protected void btncheckWinner_Click(object sender, EventArgs e)
         {
             string Celebrationemoje = "\uD83C\uDF89";
+            string Sadnessemoje = "☹️";
             SqlParameter paramCompanyID = new SqlParameter("@C1", SqlDbType.Int);
             SqlParameter paramWinnerID = new SqlParameter("@C2", SqlDbType.Int);
           
@@ -81,7 +82,17 @@ namespace DelmonPrize
                     //  player.Play();
              
                     }
+                else
+                {
+                    lblMsg.Text = string.Empty;
+                    lblMsg2.Text = "We are sad to inform you that the scheduled number of prizes has ended... " +
+                        " Good luck to those who are not selected this year." +
+                        " We look forward to having you with us next year -2024. "+
+                        " Thanks for coming  " +  Sadnessemoje;
+                   // Page.ClientScript.RegisterStartupScript(typeof(string), "fadeMsg", "fade('" + lblMsg2.ClientID + "');", true);
+
                 }
+            }
 
 
 
@@ -103,7 +114,7 @@ namespace DelmonPrize
 
 
 
-                catch (Exception ex)
+            catch (Exception ex)
                 {
 
                     throw;
