@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Prize.aspx.cs" Inherits="DelmonPrize.Prize" %>
-
+﻿<%@ Page Async="true" Language="C#"  AutoEventWireup="true" CodeBehind="Prize.aspx.cs" Inherits="DelmonPrize.Prize" %>
 <html lang="en">
   <head>
   	 <title>Delmon Group | Annual Party </title>
@@ -15,6 +14,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
+
+
 		 	<%--  --%>
 		  <link rel="stylesheet" href="css2.css">
        	 <div class="box" id="box"></div>
@@ -48,22 +49,25 @@
 			      		   <div class="form-group  mb-3">
 			      	<label class="label" for="name"></label>
 
-			     <asp:Button ID="btncheckWinner" CssClass="form-control btn btn-primary submit px-3" style="background-color:#35348d;color:white" runat="server" Text="Check The Winner " OnClientClick="confettiFalling()" OnClick="btncheckWinner_Click" />
+			     <asp:Button ID="btncheckWinner" CssClass="form-control btn btn-primary submit px-3" style="background-color:#35348d;font-weight:bold; color:white "  runat="server" Text="Check The Winner " OnClientClick="confettiFalling()" OnClick="btncheckWinner_Click" />
 						
 								 </div>
 					<div class="form-group mb-3">
 			      			<label class="label" for="name"></label>
-			      		  <asp:TextBox ID="txtwinner" Visible="false" TextMode="multiline"  runat="server"  CssClass="form-control" Text="" style="color:black;" Enabled="false"></asp:TextBox>
-
+			      		  <asp:TextBox ID="txtwinner" Visible="false"  AutoPostBack="true"  runat="server"  CssClass="form-control" Text="" style="color:white; font-weight:bold; align-content:center; text-align:center; background-color:#35348d;" Enabled="false"></asp:TextBox>
+					</div>
+							<div class="form-group mb-3">
+			      			<label class="label" for="name"></label>
+			      		  <asp:TextBox ID="txtcompany" Visible="false" AutoPostBack="true"    runat="server"  CssClass="form-control" Text="" style="color:white; font-weight:bold; align-content:center; text-align:center; background-color:#35348d;" Enabled="false"></asp:TextBox>
 					</div>
 
 		           	<div class="form-group mb-3">
 			      			<label class="label" for="name"></label>
-				  <asp:Label ID="lblMsg"  CssClass="label2" style="color: #35348d ;  rotation:inherit; font-size :20px; font-weight:bold; font-family:Tahoma; align-content:center;"   runat="server"  ></asp:Label>
-			       <asp:Label ID="lblMsg2" CssClass="mb-4" style="color: #eb2d2e ; font-size :20px; font-weight:bold; " runat="server" ></asp:Label>
+				  <asp:Label ID="lblMsg"  CssClass="label2" AutoPostBack="true" style="color: #35348d ;  rotation:inherit; font-size :20px; font-weight:bold; font-family:Tahoma; align-content:center; text-align:center;"   runat="server"  ></asp:Label>
+			       <asp:Label ID="lblMsg2" CssClass="mb-4" AutoPostBack="true" style="color: #eb2d2e ; font-size :20px; font-weight:bold; " runat="server" ></asp:Label>
 
 						   <script>
-                          var TimeToFade = 8000.0;
+                          var TimeToFade = 15000.0;
 
                    
                           function fade(eid) {

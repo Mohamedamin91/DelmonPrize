@@ -7,6 +7,10 @@ using System.IO;
 using System.Linq;
 using System.Media;
 using System.Reflection;
+using System.Speech.AudioFormat;
+using System.Speech.Synthesis;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -17,18 +21,32 @@ namespace DelmonPrize
     public partial class Prize : System.Web.UI.Page
     {
         Sqlconnection Sqlconn = new Sqlconnection();
-        Random random = new Random();
+        SpeechAudioFormatInfo info = new SpeechAudioFormatInfo(6, AudioBitsPerSample.Sixteen, AudioChannel.Mono);
+
+
         SqlDataReader dr;
-        int Winner = 0;
-        int randomNumber = 0;
-        int min = 0;
-        int max = 0;
-        int CompanyID = 0;
+        SqlDataReader dr2;
+        SqlDataReader dr3;
+
+       // int randomNumber = 0;
+        int min = 1;
+        int max = 5;
+        string companyname = "";
+        string fullname;
+        
+        List<int> numbers = new List<int>();
+        Random rand = new Random();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.IsPostBack)
+            {
+               
+                //your code here...
+            }
 
 
         }
+
 
         protected void btncheckWinner_Click(object sender, EventArgs e)
         {
@@ -41,79 +59,85 @@ namespace DelmonPrize
             try
             {
                 Sqlconn.OpenConection();
-
-
-                dr = Sqlconn.DataReader("SELECT MIN(CandID) 'MIN', MAX(CandID) 'MAX' from prize where Gifts=1 and Attended=1 ");
-                if (dr.HasRows)
+                while (numbers.Count < 5)
                 {
-                    while (dr.Read())
+                    int randomNumber = rand.Next(1, 5);
+                    paramWinnerID.Value = randomNumber;
+                    if (!numbers.Contains(randomNumber))
                     {
-
-                        min = Convert.ToInt32(dr["MIN"]);
-                        max = Convert.ToInt32(dr["MAX"]);
-                        randomNumber = random.Next(min, max + 1);
-                        paramWinnerID.Value = randomNumber;
-
-                    }
-                    dr.Dispose();
-                    dr.Close();
-                    dr = Sqlconn.DataReader("SELECT company from prize where CandID = @C2 " , paramWinnerID);
-                    if (dr.HasRows)
-                    {
-                        while (dr.Read())
+                        numbers.Add(randomNumber);
+                        dr2 = Sqlconn.DataReader("SELECT FullName ,COMPName_EN from prize,Companies where Companies.CRNumber = prize.Company and Gifts = 1 and Selected = 0 and Attended = 1 and CandID= " + randomNumber + " ");
+                        if (dr2.HasRows)
                         {
+                            while (dr2.Read())
+                            {
+                                fullname = dr2["FullName"].ToString();
+                                companyname = dr2["COMPName_EN"].ToString();
+                            }
+                            lblMsg.Text = Celebrationemoje + " Congratulations  '" + fullname + "' ,  The Holder of Raffle Coupon Number.:  '" + randomNumber.ToString() + "' " + Celebrationemoje;
+                            lblMsg.Visible = true;
+                            Page.ClientScript.RegisterStartupScript(typeof(string), "fadeMsg", "fade('" + lblMsg.ClientID + "');", true);
+                            System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"C:\Users\amin\Source\Repos\DelmonPrize\DelmonPrize\award.wav");
+                            //  player.Play();
+                            Sqlconn.ExecuteQueries("update prize set Selected = 1 where CandID=@C2 ", paramWinnerID);
 
-                            CompanyID = Convert.ToInt32(dr["company"]);
-                            paramCompanyID.Value = CompanyID;
                         }
+
                     }
-
-                    dr.Dispose();
-                    dr.Close();
-                    dr = Sqlconn.DataReader("Select * from winners where companyid = @C1  and winnerid = @C2 " , paramCompanyID,paramWinnerID);
-                    if (!dr.HasRows)
-                    {
-                        dr.Dispose();
-                        Sqlconn.ExecuteQueries("insert into winners (companyid,winnerid) values (@C1,@C2)", paramCompanyID, paramWinnerID);
-                        lblMsg.Text = Celebrationemoje + " Congratulations, To The Holder of Raffle Coupon No.:  '" + randomNumber.ToString() + "' " + Celebrationemoje;
-                        Page.ClientScript.RegisterStartupScript(typeof(string), "fadeMsg", "fade('" + lblMsg.ClientID + "');", true);
-                    }
-                    else
-                    {
-                        lblMsg2.Text = "Sorry, there are no more candidates available "  + Sadnessemoje;
-
-                        dr.Dispose();
-                        dr.Close();
-                    }
-
-                    dr.Close();
-                    Sqlconn.CloseConnection();
-
-
-
                 }
 
 
 
-                System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"C:\Users\amin\Source\Repos\DelmonPrize\DelmonPrize\award.wav");
-                //  player.Play();
+
+
+                    
+
+                          
+                       
+
+
+                    
+
+
+
+
+                } 
+                
+
+
+
+                //else
+                //{
+                //    lblMsg.Text = string.Empty;
+                //    lblMsg2.Text = "Sorry, there are no more candidates available " + Sadnessemoje;
+                //    Page.ClientScript.RegisterStartupScript(typeof(string), "fadeMsg", "fade('" + lblMsg2.ClientID + "');", true);
+
+                //}
+
+
+
+
+
+
 
 
                
-            }
-           
+            
+
 
 
 
             catch (Exception ex)
             {
-
-                throw;
+                lblMsg2.Text = ex.ToString();
+            
             }
             finally
             {
+
                 Sqlconn.CloseConnection();
             }
+            Page.DataBind();
         }
     }
 }

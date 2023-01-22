@@ -13,8 +13,7 @@ namespace DelmonPrize
     {
         Sqlconnection Sqlconn = new Sqlconnection();
         Random random = new Random();
-        int min = 0;
-        int max = 0;
+       
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -37,7 +36,7 @@ namespace DelmonPrize
 
 
 
-                    SqlDataReader dr = Sqlconn.DataReader("  select CandID,FullName,ID,COMPName_EN from Prize,Companies where Companies.COMPID= Prize.Company and ID =@IDD", paramIDQuery);
+                    SqlDataReader dr = Sqlconn.DataReader("  select CandID,FullName,ID,COMPName_EN from Prize,Companies where Companies.CRNumber= Prize.Company and ID =@IDD", paramIDQuery);
                     if (dr.HasRows)
                     {
                         while (dr.Read())
