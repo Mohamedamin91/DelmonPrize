@@ -25,6 +25,13 @@ namespace DelmonPrize
 
 
 
+       
+
+
+        }
+
+        protected void btnconfirm_Click(object sender, EventArgs e)
+        {
             if (txtUserInput.Text != string.Empty)
             {
                 try
@@ -33,6 +40,7 @@ namespace DelmonPrize
                     SqlParameter paramIDQuery = new SqlParameter("@IDD", SqlDbType.NVarChar);
                     paramIDQuery.Value = txtUserInput.Text;
                     string Celebrationemoje = "\uD83C\uDF89";
+                    string Sadnessemoje = "☹️";
 
 
 
@@ -68,10 +76,10 @@ namespace DelmonPrize
                     }
                     else
                     {
-                      //  Response.Write("<script>alert('" + "not found" + "');</script>");
+                        //  Response.Write("<script>alert('" + "not found" + "');</script>");
 
                         lblMsg2.Visible = true;
-                        lblMsg2.Text = "User/Credentials not Found/Correct  :( ";
+                        lblMsg2.Text = "User/Credentials not Found/Correct  " + Sadnessemoje;
                         //    lblMsg.CssClass = "alert alert-danger";
 
                     }
@@ -88,17 +96,10 @@ namespace DelmonPrize
             }
             else
             {
-               // Response.Write("<script>alert('" + "Please Enter your ID/IQama" + "');</script>");
+                // Response.Write("<script>alert('" + "Please Enter your ID/IQama" + "');</script>");
                 lblMsg2.Visible = true;
                 lblMsg2.Text = "Please Enter your ID/IQama";
             }
-
-
-        }
-
-        protected void btnconfirm_Click(object sender, EventArgs e)
-        {
-            filData();
         }
     }
 }

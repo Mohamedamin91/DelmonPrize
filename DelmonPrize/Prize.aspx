@@ -10,7 +10,7 @@
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
-	<link rel="stylesheet" href="Main.css">
+	<link rel="stylesheet" href="Main.css">pt>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -49,23 +49,25 @@
 			      		   <div class="form-group  mb-3">
 			      	<label class="label" for="name"></label>
 
-			     <asp:Button ID="btncheckWinner" CssClass="form-control btn btn-primary submit px-3" style="background-color:#35348d;font-weight:bold; color:white "  runat="server" Text="Check The Winner " OnClientClick="confettiFalling()" OnClick="btncheckWinner_Click" />
-						
-								 </div>
+			     <asp:Button ID="btncheckWinner" CssClass="form-control btn btn-primary submit px-3" style="background-color:#35348d;font-weight:bold; color:white "  runat="server" Text="Check The Winner " OnClientClick="playAudio()" OnClick="btncheckWinner_Click" />					<!-- using audio tag (HTML5) -->						
+		
+							</div>	
 					<div class="form-group mb-3">
 			      			<label class="label" for="name"></label>
-			      		  <asp:TextBox ID="txtwinner" Visible="false"  AutoPostBack="true"  runat="server"  CssClass="form-control" Text="" style="color:white; font-weight:bold; align-content:center; text-align:center; background-color:#35348d;" Enabled="false"></asp:TextBox>
+			      		  <asp:TextBox ID="txtwinner" Visible="true"  AutoPostBack="true"  runat="server"  CssClass="form-control" Text="" style="color:white; font-weight:bold; align-content:center; text-align:center; background-color:#35348d;" Enabled="false"></asp:TextBox>
 					</div>
 							<div class="form-group mb-3">
 			      			<label class="label" for="name"></label>
-			      		  <asp:TextBox ID="txtcompany" Visible="false" AutoPostBack="true"    runat="server"  CssClass="form-control" Text="" style="color:white; font-weight:bold; align-content:center; text-align:center; background-color:#35348d;" Enabled="false"></asp:TextBox>
+			      		  <asp:TextBox ID="txtcompany" Visible="true" AutoPostBack="true"    runat="server"  CssClass="form-control" Text="" style="color:white; font-weight:bold; align-content:center; text-align:center; background-color:#35348d;" Enabled="false"></asp:TextBox>
 					</div>
 
 		           	<div class="form-group mb-3">
 			      			<label class="label" for="name"></label>
-				  <asp:Label ID="lblMsg"  CssClass="label2" AutoPostBack="true" style="color: #35348d ;  rotation:inherit; font-size :25px; font-weight:bold; font-family:Tahoma; align-content:center; text-align:center;"   runat="server"  ></asp:Label>
-			       <asp:Label ID="lblMsg2" CssClass="mb-4" AutoPostBack="true" style="color: #028402 ; font-size :25px; font-weight:bold; " runat="server" ></asp:Label>
-
+				  <asp:Label ID="lblMsg" Visible="false" CssClass="label2" AutoPostBack="true" style="color: #35348d ;  rotation:inherit; font-size :25px; font-weight:bold; font-family:Tahoma; align-content:center; text-align:center;"   runat="server"  ></asp:Label>
+			       <asp:Label ID="lblMsg2" Visible="false" CssClass="mb-4" AutoPostBack="true" style="color: #028402 ; font-size :25px; font-weight:bold; " runat="server" ></asp:Label>
+                     <asp:Label ID="lblMsg3" CssClass="mb-4" AutoPostBack="true" style="color: #35348d ; font-size :25px; font-weight:bold; " runat="server" ></asp:Label>
+                       <asp:Label ID="lblMsg4" CssClass="mb-4" AutoPostBack="true" style="color: #028402 ; font-size :25px; font-weight:bold; " runat="server" ></asp:Label>
+						  
 						   <script>
                           var TimeToFade = 15000.0;
 

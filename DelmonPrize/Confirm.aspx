@@ -68,7 +68,7 @@
 		            <div class="form-group  mb-3">
 			      	<label class="label" for="name"></label>
 
-			     <asp:Button ID="btnconfirm" CssClass="form-control btn btn-primary submit px-3" style="background-color:#35348d;color:white" runat="server" Text="Confirm"    />
+			     <asp:Button ID="btnconfirm" CssClass="form-control btn btn-primary submit px-3" style="background-color:#35348d;color:white" runat="server" OnClick="btnconfirm_Click" Text="Confirm"    />
 		            </div>
 		            <div class="form-group d-md-flex">
 		            	

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Google.Cloud.TextToSpeech.V1;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -15,6 +16,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Windows.Media;
+//using Google.Cloud.TextToSpeech.V1;
+
 
 namespace DelmonPrize
 {
@@ -22,21 +25,23 @@ namespace DelmonPrize
     {
         Sqlconnection Sqlconn = new Sqlconnection();
         SpeechAudioFormatInfo info = new SpeechAudioFormatInfo(6, AudioBitsPerSample.Sixteen, AudioChannel.Mono);
+        SpeechSynthesizer synth = new SpeechSynthesizer();
+
 
 
         SqlDataReader dr;
         SqlDataReader dr2;
         SqlDataReader dr3;
         Random random = new Random();
+
         int randomNumber = 0;
         int CompanyID = 0;
-        int min = 1;
-        int max = 5;
+        //int min = 1;
+        //int max = 5;
         string companyname = "";
         string fullname="";
         
         List<int> numbers = new List<int>();
-        Random rand = new Random();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -55,86 +60,83 @@ namespace DelmonPrize
             string Sadnessemoje = "☹️";
             SqlParameter paramCompanyID = new SqlParameter("@C1", SqlDbType.Int);
             SqlParameter paramWinnerID = new SqlParameter("@C2", SqlDbType.Int);
-          
-                try
+
+            try
+            {
+                Sqlconn.OpenConection();
+
+               
+                dr = Sqlconn.DataReader("Select * From Prize ");
+                if (dr.HasRows)
                 {
-                  
-                    Sqlconn.OpenConection();
-                     //   min = Convert.ToInt32(dr["MIN"]);
-                    //   max = Convert.ToInt32(dr["MAX"]);
-                    randomNumber = random.Next(min, max+1);
+                    randomNumber = random.Next(1, 5);
                     paramWinnerID.Value = randomNumber;
-                    dr2 = Sqlconn.DataReader("SELECT FullName,COMPName_EN, company from prize, Companies where prize.company=Companies.CRNumber and  [Gifts]=1   and [Selected]=0   and [Attended] =1  and CandID = @C2 ", paramWinnerID);
-                    if (dr2.HasRows)
+                    txtcompany.Text = "";
+                    txtwinner.Text = "";
+                    lblMsg.Text = "";
+                    lblMsg3.Text = lblMsg.Text;
+                    while (dr.Read())
                     {
-                        while (dr2.Read())
+                      
+                        dr2 = Sqlconn.DataReader("SELECT FullName,COMPName_EN, company from prize, Companies where prize.company=Companies.CRNumber and  [Gifts]=1   and [Selected]=0   and [Attended] =1  and CandID = @C2 ", paramWinnerID);
+                        if (dr2.HasRows)
                         {
-                            CompanyID = Convert.ToInt32(dr2["company"]);
-                            fullname = dr2["FullName"].ToString();
-                            companyname = dr2["COMPName_EN"].ToString();
-                            paramCompanyID.Value = CompanyID;
+                            while (dr2.Read())
+                            {
+                                CompanyID = Convert.ToInt32(dr2["company"]);
+                                fullname = dr2["FullName"].ToString();
+                                companyname = dr2["COMPName_EN"].ToString();
+                                paramCompanyID.Value = CompanyID;
+
+                            }
+                            txtcompany.Text = companyname;
+                            txtwinner.Text = fullname;
+                            Sqlconn.ExecuteQueries("update  prize set selected = 1 where  CandID = @C2 ", paramWinnerID);
+                            lblMsg.Text = Celebrationemoje + " Congratulations   '" + fullname + "' ,  The Holder of Raffle Coupon No.:  '" + randomNumber.ToString() + "' " + Celebrationemoje;
+                            //synth.Speak(lblMsg.Text);
+                            lblMsg3.Text = lblMsg.Text;
+                            Page.ClientScript.RegisterStartupScript(typeof(string), "fadeMsg", "fade('" + lblMsg.ClientID + "');", true);
+                       //     ScriptManager.RegisterClientScriptBlock(this, GetType(), "uKey", "PlaySoundNow();", true);
+                         
+                            //System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+                            //string soundUrl = "http://www.Delmon.sa/award.wav";
+                            //player.SoundLocation = soundUrl;
+                            //player.Play();
+
+
+
+
+
 
                         }
-                    Sqlconn.ExecuteQueries("update  prize set selected = 1 where  CandID = @C2 ", paramWinnerID);
-                    lblMsg.Text = Celebrationemoje + " Congratulations   '" + fullname + "' ,  The Holder of Raffle Coupon No.:  '" + randomNumber.ToString() + "' " + Celebrationemoje;
-                    Page.ClientScript.RegisterStartupScript(typeof(string), "fadeMsg", "fade('" + lblMsg.ClientID + "');", true);
-                    System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"C:\Users\amin\Source\Repos\DelmonPrize\DelmonPrize\award.wav");
-                    //  player.Play();
-             
+
+
                     }
+                   
+                }
                 else
                 {
-                    lblMsg.Text = string.Empty;
+                    txtcompany.Text = "";
+                    txtwinner.Text = "";
+                    //  lblMsg.Text = "";
                     lblMsg2.Text = "We are sad to inform you that the scheduled number of prizes has ended... " +
                         " Good luck to those who are not selected this year." +
-                        " We look forward to having you with us next year -2024. "+
-                        " Thanks for coming  " +  Sadnessemoje;
-                   // Page.ClientScript.RegisterStartupScript(typeof(string), "fadeMsg", "fade('" + lblMsg2.ClientID + "');", true);
+                        " We look forward to having you with us next year - 2024. " +
+                        " Thanks for coming  " + Sadnessemoje;
+                    // Page.ClientScript.RegisterStartupScript(typeof(string), "fadeMsg", "fade('" + lblMsg2.ClientID + "');", true);
 
                 }
+
+
             }
+            catch (Exception)
+            {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            catch (Exception ex)
-                {
-
-                    throw;
-                }
-                finally
-                {
-                    Sqlconn.CloseConnection();
-                }
-
-
-
-
-            
-
-
-
-
-
-
-
+                throw;
+            }
+       
+        
+        
         }
     }
 }
