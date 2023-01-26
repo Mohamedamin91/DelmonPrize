@@ -80,6 +80,7 @@ namespace DelmonPrize
 
                         lblMsg2.Visible = true;
                         lblMsg2.Text = "User/Credentials not Found/Correct  " + Sadnessemoje;
+                        lblMsg.Text = "";
                         //    lblMsg.CssClass = "alert alert-danger";
 
                     }
