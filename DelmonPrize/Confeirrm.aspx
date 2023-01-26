@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Confirm.aspx.cs" Inherits="DelmonPrize.Confirm" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Confeirrm.aspx.cs" Inherits="DelmonPrize.Confirm" %>
 
 <!doctype html>
 <html lang="en">
@@ -37,7 +37,7 @@
 						<div class="login-wrap p-4 p-lg-5">
 			      	<div class="d-flex">
 			      		<div class="w-100">
-			      			<%--<h3 class="mb-4">Sign In</h3>--%>
+			      		
 		                 <asp:Label ID="lblMsg" CssClass="mb-4" style="color: #35348d ; font-size :24px; font-weight:bold; " runat="server" ></asp:Label>
 		                 <asp:Label ID="lblMsg2" CssClass="mb-4" style="color: #eb2d2e ; font-size :24px; font-weight:bold; " runat="server" ></asp:Label>
 
