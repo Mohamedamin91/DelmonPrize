@@ -81,10 +81,10 @@ namespace DelmonPrize
                         lblMsg2.Visible = true;
                         lblMsg2.Text = "User/Credentials not Found/Correct  " + Sadnessemoje;
                         lblMsg.Text = "";
-                        txtfullname.Text = "";
-                        txtiqama.Text = "";
-                        txtcompany.Text ="";
-                        //    lblMsg.CssClass = "alert alert-danger";
+                        txtfullname.Text = "Full Name";
+                        txtiqama.Text = "IQama/ID";
+                        txtcompany.Text ="Company";
+                        //lblMsg.CssClass = "alert alert-danger";
 
                     }
                     dr.Close();
