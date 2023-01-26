@@ -31,7 +31,6 @@ namespace DelmonPrize
 
         SqlDataReader dr;
         SqlDataReader dr2;
-        SqlDataReader dr3;
         Random random = new Random();
 
         int randomNumber = 0;

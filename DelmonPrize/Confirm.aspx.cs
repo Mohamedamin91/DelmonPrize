@@ -44,18 +44,18 @@ namespace DelmonPrize
 
 
 
-                    SqlDataReader dr = Sqlconn.DataReader("  select CandID,FullName,ID,COMPName_EN from Prize,Companies where Companies.CRNumber= Prize.Company and ID =@IDD", paramIDQuery);
+                    SqlDataReader dr = Sqlconn.DataReader("  select CandID,FullName,ID,Company from Prize where   ID =@IDD", paramIDQuery);
                     if (dr.HasRows)
                     {
                         while (dr.Read())
                         {
                             txtfullname.Text = dr["FullName"].ToString();
                             txtiqama.Text = dr["ID"].ToString();
-                            txtcompany.Text = dr["COMPName_EN"].ToString();
+                            txtcompany.Text = dr["Company"].ToString();
                             string CandID = dr["CandID"].ToString();
                             lblMsg.Visible = true;
                             lblMsg.Text = Celebrationemoje + " Congratulations your Raffle Coupon is :  ' " + CandID + " ' , We wish you best of luck  :)  " + Celebrationemoje;
-
+                            lblMsg2.Text = "";
                         }
                         dr.Dispose();
                         dr.Close();
