@@ -197,11 +197,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assest\css\font-awesome.css" />
+    <Content Include="assest\css\style.css" />
+    <Content Include="assest\fonts\fontawesome-webfont.svg" />
+    <Content Include="assest\images\banner2.jpg" />
+    <Content Include="assest\images\banner1.jpg" />
+    <Content Include="assest\js\jquery-3.3.1.min.js" />
     <Content Include="award.mp3" />
     <Content Include="award.wav" />
-    <Content Include="Confeirrm.aspx" />
+    <Content Include="Check.aspx" />
     <Content Include="Css.css" />
     <Content Include="css2.css" />
+    <Content Include="index.html" />
     <Content Include="Main.css" />
     <Content Include="Delmonlogo.jpg" />
     <Content Include="Global.asax" />
@@ -211,12 +218,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Confeirrm.aspx.cs">
-      <DependentUpon>Confeirrm.aspx</DependentUpon>
+    <Compile Include="Check.aspx.cs">
+      <DependentUpon>Check.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Confeirrm.aspx.designer.cs">
-      <DependentUpon>Confeirrm.aspx</DependentUpon>
+    <Compile Include="Check.aspx.designer.cs">
+      <DependentUpon>Check.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -242,6 +249,11 @@
     <Content Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </Content>
+    <Content Include="assest\fonts\fontawesome-webfont.eot" />
+    <Content Include="assest\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assest\fonts\fontawesome-webfont.woff" />
+    <Content Include="assest\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assest\fonts\FontAwesome.otf" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FTPProfile1.pubxml" />
