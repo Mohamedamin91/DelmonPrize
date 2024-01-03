@@ -25,15 +25,15 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section"><img src="../Delmonlogo.jpg" width="150" height="100" alt="" /></h2>
+					<h2 class="heading-section"><img src="../Delmonlogo.jpg" width="200" height="150" alt="" /></h2>
 				</div>
 			</div>
-			<div class="row justify-content-center">
+				<div class="row justify-content-center">
 				<div class="col-md-12 col-lg-10">
 					<div class="wrap d-md-flex">
 						<div class="text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last">
 							<div class="text w-100">
-								<h2>42<sup style= "font-size:20px; font-family:'sans-serif' ">nd</sup> -  Delmon Annual Party Anniversary-2023</h2>
+								<h2>43<sup style= "font-size:20px; font-family:'sans-serif' ">nd</sup> -  Delmon Annual Party Anniversary-2024</h2>
 								<p>This is a great chance for us to come together as a team, celebrate all the hard work we've put in throughout the year, and just have some fun..</p>
 								<p ><b>* Please</b> register and attend for getting a chance to win prizes</p>
 							</div>
@@ -49,16 +49,27 @@
 			      		   <div class="form-group  mb-3">
 			      	<label class="label" for="name"></label>
 
-			     <asp:Button ID="btncheckWinner" CssClass="form-control btn btn-primary submit px-3" style="background-color:#35348d;font-weight:bold; color:white "  runat="server" Text="Check The Winner " OnClientClick="playAudio()" OnClick="btncheckWinner_Click" />					<!-- using audio tag (HTML5) -->						
-		
+			     <asp:Button ID="btncheckWinner" CssClass="form-control btn btn-primary submit px-3" style="background-color:#35348d;font-weight:bold; color:white "  runat="server" Text="Check The Winner " OnClientClick="playAudio()" OnClick="btncheckWinner_Click" />					<!-- using audio tag (HTML5) -->
+				<%-- <div class="form-group mb-3">
+                    <label class="label" for="name"></label>
+				   <asp:Button ID="btnchecklist" CssClass="form-control btn btn-primary submit px-3" style="background-color:#35348d;font-weight:bold; color:white "  runat="server" Text="Check The Winners List "   />		
+					</div>	
+		--%>
 							</div>	
 					<div class="form-group mb-3">
 			      			<label class="label" for="name"></label>
 			      		  <asp:TextBox ID="txtwinner" Visible="true"  AutoPostBack="true"  runat="server"  CssClass="form-control" Text="" style="color:white; font-weight:bold; align-content:center; text-align:center; background-color:#35348d;" Enabled="false"></asp:TextBox>
 					</div>
-							<div class="form-group mb-3">
+							
+
+
+							<%--<div class="form-group mb-3">
 			      			<label class="label" for="name"></label>
 			      		  <asp:TextBox ID="txtcompany" Visible="true" AutoPostBack="true"    runat="server"  CssClass="form-control" Text="" style="color:white; font-weight:bold; align-content:center; text-align:center; background-color:#35348d;" Enabled="false"></asp:TextBox>
+					</div>--%>
+							<div class="form-group mb-3" style="margin-right:200px;">
+			      			<label class="label" for="name"></label>
+                     <asp:Label ID="lblwinner" CssClass="mb-4" AutoPostBack="true" style="color: #35348d;  padding-right:200px; font-size :115px; font-weight:bold; " Text="Winner" runat="server" ></asp:Label>
 					</div>
 
 		           	<div class="form-group mb-3">
@@ -124,30 +135,36 @@
                           }
 
                       
-                      </script>
+                           </script>
 						   </div>
-           
-							<div class="form-group mb-3">
-                
-  
-							</div>
-		         
+          
+		        
 		            <div class="form-group d-md-flex">
 		            	
-						
 									
 		            </div>
 		        </div>
+		 
 		      </div>
 				</div>
-			</div>
-		</div>
+		<div class="form-group mb-3">
+                	</div>
+<div class="row justify-content-center">
+ </div>
+
+                    </div>
+
+		     	</div>
 	</section>
 
-	<script src="js/jquery.min.js"></script>
-  <script src="js/popper.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/main.js"></script>
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<!-- Popper.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 		</form>
 	</body>
 </html>

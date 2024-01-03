@@ -29,7 +29,7 @@
 					<div class="wrap d-md-flex">
 						<div class="text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last">
 							<div class="text w-100">
-								<h2>42<sup style= "font-size:20px; font-family:'sans-serif' ">nd</sup> -  Delmon Annual Party Anniversary-2023</h2>
+								<h2>43<sup style= "font-size:20px; font-family:'sans-serif' ">rd</sup> -  Delmon Annual Party Anniversary-2024</h2>
 								<p>This is a great chance for us to come together as a team, celebrate all the hard work we've put in throughout the year, and just have some fun..</p>
 								<p ><b>* Please</b> register and attend for getting a chance to win prizes</p>
 							</div>

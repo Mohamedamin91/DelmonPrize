@@ -24,8 +24,9 @@ Author URL: http://w3layouts.com
 		<div class="coming-61-w3l-vv-mian">
 			<div class="wrapper">
 				<div class="coming-61-w3l-vv-top">
+				
 					<div class="coming-61-w3l-vv-info">
-						<h1>We Are <span style="color: #35348d" >Launching</span>  <span style="color: #eb2d2e ">Soon</span></h1>
+						<h1><b>We Are</b> <span style="color: #35348d"><b>Launching</b></span>  <span style="color: #eb2d2e "><b>Soon</b></span></h1>
 
 						<ul class="counter-inner">
 							<li><span id="days"></span>days</li>
@@ -35,9 +36,9 @@ Author URL: http://w3layouts.com
 						</ul>
 
 						<!--<form action="#" method="GET" class="d-flex coming-form">
-							<input type="email"  placeholder="Enter Your Email" required="required">
-							<button type="submit">Get Notify</button>
-						</form>-->
+			<input type="email"  placeholder="Enter Your Email" required="required">
+			<button type="submit">Get Notify</button>
+		</form>-->
 
 					</div>
 
@@ -45,7 +46,7 @@ Author URL: http://w3layouts.com
 				<div class="social-coming-soon">
 
 					<div class="social-coming-button">
-						<p class="copy-footer">© 2023 Launch . All rights reserved | Design by
+						<p class="copy-footer">© 2024 Launch . All rights reserved | Design by
 							<a href="http://Delmon.com.sa/" target="_blank">Delmon Co.Ltd - IT</a></p>
 					</div>
 					<!--<div class="social-coming-icons">
@@ -68,13 +69,13 @@ Author URL: http://w3layouts.com
 				hour = minute * 60,
 				day = hour * 24;
 
-			let countDown = new Date('Jan 28, 2023 12:00:00').getTime(),
+			let countDown = new Date('Feb 1, 2024 12:00:00').getTime(),
 				x = setInterval(function () {
 
 					let now = new Date().getTime(),
 						distance = countDown - now;
 
-					document.getElementById('days').innerText = Math.floor(distance / (day)),
+					    document.getElementById('days').innerText = Math.floor(distance / (day)),
 						document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
 						document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
 						document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
